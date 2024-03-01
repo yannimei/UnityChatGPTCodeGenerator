@@ -7,7 +7,7 @@ public class ChatGTPSetting : ScriptableObject
 
     public string apiKey;
 
-    public bool debug;
+    //public bool debug;
 
     public string[] reminders;
 }

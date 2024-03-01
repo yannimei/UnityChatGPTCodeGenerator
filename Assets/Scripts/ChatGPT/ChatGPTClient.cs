@@ -21,6 +21,7 @@ public class ChatGPTClient : Singleton<ChatGPTClient>
                 //TODO add reminders to the question
             }));
 
+            //what is upload and download handler
             request.uploadHandler = new UploadHandlerRaw(bodyRaw);
             request.downloadHandler = new DownloadHandlerBuffer();
             request.disposeDownloadHandlerOnDispose = true;
@@ -37,8 +38,6 @@ public class ChatGPTClient : Singleton<ChatGPTClient>
             }
             else
             {
-                Debug.Log(request.error);
-
                 string responseInfo = request.downloadHandler.text;
                 var response = new ChatGPTResponse { Data = responseInfo };
                 callback(response);
