@@ -11,6 +11,7 @@ public class ChatGPTTester : MonoBehaviour
     private TextMeshProUGUI chatGPTAnswer;
 
     [SerializeField]
+    [TextArea(5, 12)]
     private string prompt;
 
     public void Execute()
