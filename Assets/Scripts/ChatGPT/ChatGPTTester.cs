@@ -21,5 +21,7 @@ public class ChatGPTTester : MonoBehaviour
     public void ProcessResponse(ChatGPTResponse response)
     {
         Logger.Instance.LogInfo(response.Data);
+        //Roslyn run the code
+        RoslynCodeRunner.Instance.RunCode(response.Data);
     }
 }
