@@ -5,7 +5,7 @@ public static class GPTExtension
     // Start is called before the first frame update
     public const string KEYWORD_USING = "using UnityEngine";
     public const string KEYWORD_PUBLIC_CLASS = "public class";
-    public static readonly string[] filters = { "C#", "csharp" };
+    public static readonly string[] filters = { "C#", "csharp", "c#", "Csharp", "CSHARP" };
 
     public static ChatGPTResponse CodeCleanUp(this ChatGPTResponse chatGPTResponse)
     {
