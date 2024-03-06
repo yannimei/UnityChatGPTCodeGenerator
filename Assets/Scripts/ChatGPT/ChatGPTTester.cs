@@ -18,6 +18,9 @@ public class ChatGPTTester : MonoBehaviour
     [SerializeField]
     private ChatGPTQuestion chatGPTQuestion;
 
+    [SerializeField]
+    private TextMeshProUGUI questionText;
+
     private string gptPrompt;
 
     private ChatGPTResponse response;
@@ -27,6 +30,9 @@ public class ChatGPTTester : MonoBehaviour
     public void Execute()
     {
         gptPrompt = $"{chatGPTQuestion.promptPrefixConstant} {chatGPTQuestion.prompt}";
+
+        //display the given prompt
+        questionText.text = chatGPTQuestion.prompt;
 
         // handle replacements
         Array.ForEach(chatGPTQuestion.replacements, r =>
@@ -40,8 +46,7 @@ public class ChatGPTTester : MonoBehaviour
             gptPrompt += $", {string.Join(',', chatGPTQuestion.reminders)}";
         }
 
-        //(ChatGPTClient.Instance.Ask(gptPrompt, (r) => ProcessResponse(r)));
-
+        
         StartCoroutine(ChatGPTClient.Instance.Ask(gptPrompt, (r) =>
            {
                //pass the generated code (r) to response
