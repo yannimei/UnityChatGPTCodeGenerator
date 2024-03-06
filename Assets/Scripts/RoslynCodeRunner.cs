@@ -1,10 +1,12 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using DilmerGames.Core.Singletons;
 using Microsoft.CodeAnalysis.Scripting;
 using Microsoft.CodeAnalysis.CSharp.Scripting;
 using System.Linq;
+using TMPro;
 
 public class RoslynCodeRunner : Singleton<RoslynCodeRunner>
 {
@@ -28,6 +30,8 @@ public class RoslynCodeRunner : Singleton<RoslynCodeRunner>
     [SerializeField]
     [TextArea(5, 12)]
     private string resultInfo;
+
+
 
     //why null, only want to pass code through inspector
     public void RunCode(string updatedCode = null)
@@ -60,6 +64,16 @@ public class RoslynCodeRunner : Singleton<RoslynCodeRunner>
             .Trim()))
             .AddReferences(
                 typeof(MonoBehaviour).Assembly,
-                typeof(Debug).Assembly);
+                typeof(Debug).Assembly,
+                typeof(TextMeshPro).Assembly,
+                typeof(IEnumerator).Assembly,
+                typeof(Rigidbody).Assembly,
+                typeof(Collider).Assembly,
+                typeof(Input).Assembly,
+                typeof(Animation).Assembly,
+                typeof(Light).Assembly,
+                typeof(Camera).Assembly,
+                typeof(ParticleSystem).Assembly);
+
     }
 }
