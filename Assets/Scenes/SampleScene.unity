@@ -1451,8 +1451,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   askButton: {fileID: 353485464}
   chatGPTAnswer: {fileID: 208255855}
-  prompt: create a untiy c# script called "Generation" to generate a rotation cube
-    of which the size is 5
+  chatGPTQuestion: {fileID: 11400000, guid: 5bc09073ac60b174096fe6bd0b441840, type: 2}
 --- !u!4 &1560401040
 Transform:
   m_ObjectHideFlags: 0
