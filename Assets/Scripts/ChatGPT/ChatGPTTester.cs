@@ -20,6 +20,10 @@ public class ChatGPTTester : MonoBehaviour
 
     private string gptPrompt;
 
+    private ChatGPTResponse response;
+
+    public bool immediateCompilation;
+
     public void Execute()
     {
         gptPrompt = $"{chatGPTQuestion.promptPrefixConstant} {chatGPTQuestion.prompt}";
@@ -36,13 +40,35 @@ public class ChatGPTTester : MonoBehaviour
             gptPrompt += $", {string.Join(',', chatGPTQuestion.reminders)}";
         }
 
-        StartCoroutine(ChatGPTClient.Instance.Ask(gptPrompt, (r) => ProcessResponse(r)));
+        //(ChatGPTClient.Instance.Ask(gptPrompt, (r) => ProcessResponse(r)));
+
+        StartCoroutine(ChatGPTClient.Instance.Ask(gptPrompt, (r) =>
+           {
+               //pass the generated code (r) to response
+               response = r;
+
+               // log the code to the text box
+               Logger.Instance.LogInfo(response.Data);
+
+               //if true then run the genreated code
+               if (immediateCompilation)
+               {
+                   ProcessAndCompileResponse();
+               }
+           }
+        ));
     }
 
-    public void ProcessResponse(ChatGPTResponse response)
+    //public void ProcessResponse(ChatGPTResponse response)
+    //{
+    //    Logger.Instance.LogInfo(response.Data);
+    //    //Roslyn run the code
+    //    RoslynCodeRunner.Instance.RunCode(response.Data);
+    //}
+
+
+    public void ProcessAndCompileResponse()
     {
-        Logger.Instance.LogInfo(response.Data);
-        //Roslyn run the code
         RoslynCodeRunner.Instance.RunCode(response.Data);
     }
 }

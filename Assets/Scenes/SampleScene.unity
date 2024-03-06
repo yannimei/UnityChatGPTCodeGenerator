@@ -207,10 +207,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1934584299}
-        m_TargetAssemblyTypeName: RoslynCodeRunner, Assembly-CSharp
-        m_MethodName: RunCode
-        m_Mode: 5
+      - m_Target: {fileID: 1560401039}
+        m_TargetAssemblyTypeName: ChatGPTTester, Assembly-CSharp
+        m_MethodName: ProcessAndCompileResponse
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1452,6 +1452,7 @@ MonoBehaviour:
   askButton: {fileID: 353485464}
   chatGPTAnswer: {fileID: 208255855}
   chatGPTQuestion: {fileID: 11400000, guid: 5bc09073ac60b174096fe6bd0b441840, type: 2}
+  immediateCompilation: 0
 --- !u!4 &1560401040
 Transform:
   m_ObjectHideFlags: 0
