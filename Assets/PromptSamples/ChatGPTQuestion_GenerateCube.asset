@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scenarioTitle: Create a cube in unity
   promptPrefixConstant: create a untiy c# script called "Generation" to
-  prompt: "generate a primitive cube called \"cici\" of which the size is 80, cici
+  prompt: "generate a primitive cube called \"cici\" of which the size is 0.3, cici
     is moving along a random path and cici is changing color all the time. \r\n"
   replacements: []
   reminders:
