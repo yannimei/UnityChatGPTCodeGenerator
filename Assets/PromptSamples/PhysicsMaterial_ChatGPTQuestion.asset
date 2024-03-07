@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162a0293d3600954a9165bdb3d90c9a6, type: 3}
+  m_Name: PhysicsMaterial_ChatGPTQuestion
+  m_EditorClassIdentifier: 
+  scenarioTitle: PhysicsMaterial
+  promptPrefixConstant: create a untiy c# script called "Generation" to
+  promptList:
+  - create a primitive sphere called "Lisa" of which the size is 0.1f at the position
+    (0,1,0), with rigid body and sphere collier but with gravity off, it has a PhysicMaterial
+    with high bounciness value and it is assigned to the collider. If the X button
+    is prssed, Lisa's gravity is turn on and Lisa is falling
+  index: 0
+  replacements: []
+  reminders:
+  - Do not require any explanations
+  - Always in include code with markdown
+  - Do not require any prefabs
+  - Do not require any reference
+  - All reference should not be null
+  - the positoin of generation is (0,1,0), if there is no clear indication
+  - Oculus button A/B/X/Y is respectively associated with if (OVRInput.Get(OVRInput.Button.One/Two/Three/Four))

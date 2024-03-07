@@ -73,6 +73,7 @@ public class RoslynCodeRunner : Singleton<RoslynCodeRunner>
                 typeof(OVRInput).Assembly,
                 typeof(Animation).Assembly,
                 typeof(Light).Assembly,
+                typeof(PhysicMaterial).Assembly,
                 typeof(Camera).Assembly,
                 typeof(ParticleSystem).Assembly);
 
