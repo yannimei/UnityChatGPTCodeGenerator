@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 162a0293d3600954a9165bdb3d90c9a6, type: 3}
-  m_Name: Light_ChatGPTQuestion
+  m_Name: Camera_ChatGPTQuestion
   m_EditorClassIdentifier: 
-  scenarioTitle: Light
+  scenarioTitle: CameraControl
   promptPrefixConstant: create a untiy c# script called "Generation" to
   promptList:
-  - create a point light of which the color and it is blue. If Oculus X button is
-    pressed, the intensity of the light get stronger, and if the Oculus Y button
-    is pressed, the light intensity get weaker
-  - create a point light of which the color and it is blue. If Oculus X button is
-    pressed, the light with blink for 3 seconds, by quickly changing the intensity
-    value, then go back the orignal light intensity. Do not use ienumerator
-  index: 1
+  - switch between VR and AR. if Oculus X button is pressed, access the skybox of
+    the environment and save the value to "OriginalSkybox", then switch the skybox
+    of the envroment to None, and then Find the object OVRCameraRig, access its OVRManager
+    component, then access its bool value isInsightPassthroughEnabled, and turn it
+    as true. If Y button is pressed, then turn the  isInsightPassthroughEnabled as
+    false, and switch the skybox of the environment to the "OrinigalSkybox"
+  index: 0
   replacements: []
   reminders:
   - Do not require any explanations
@@ -31,3 +31,5 @@ MonoBehaviour:
   - All reference should not be null
   - the positoin of generation is (0,0.3,0), if there is no clear indication
   - Oculus button A/B/X/Y is respectively associated with if (OVRInput.Get(OVRInput.Button.One/Two/Three/Four))
+  - find the VR camera using Gameobject.find, the path is "OVRCameraRig/TrackingSpace/CenterEyeAnchor",
+    then access its Camera component
