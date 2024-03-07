@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 162a0293d3600954a9165bdb3d90c9a6, type: 3}
-  m_Name: InputReaction_ChatGPTQuestion_GenerateCube
+  m_Name: InputReaction_ChatGPTQuestion_G
   m_EditorClassIdentifier: 
   scenarioTitle: InputReaction
   promptPrefixConstant: create a untiy c# script called "Generation" to
