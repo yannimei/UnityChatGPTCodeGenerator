@@ -1563,7 +1563,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &705507994
 Light:
   m_ObjectHideFlags: 0
@@ -3159,7 +3159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   askButton: {fileID: 353485464}
   chatGPTAnswer: {fileID: 208255855}
-  chatGPTQuestion: {fileID: 11400000, guid: 1ebc09a52a243f4438c69484fcca00ff, type: 2}
+  chatGPTQuestion: {fileID: 11400000, guid: e919af093ab13564da83dac80642d8cf, type: 2}
   questionText: {fileID: 626870793}
   immediateCompilation: 0
 --- !u!4 &1560401040
