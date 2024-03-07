@@ -29,6 +29,7 @@ public class ChatGPTTester : MonoBehaviour
 
     public void Execute()
     {
+        
         gptPrompt = $"{chatGPTQuestion.promptPrefixConstant} {chatGPTQuestion.prompt}";
 
         //display the given prompt

@@ -10,12 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 162a0293d3600954a9165bdb3d90c9a6, type: 3}
-  m_Name: ChatGPTQuestion_GenerateCube
+  m_Name: ObjManipulation_ChatGPTQuestion_GenerateCube 1
   m_EditorClassIdentifier: 
-  scenarioTitle: Create a cube in unity
+  scenarioTitle: ManipulatePrimitveShape
   promptPrefixConstant: create a untiy c# script called "Generation" to
-  prompt: "generate a primitive cube called \"cici\" of which the size is 0.3, cici
-    is moving along a random path and cici is changing color all the time. \r\n"
+  promptList:
+  - 'create a primitive cube called "Lisa" of which the size is 0.3, Lisa is moving
+    up and down slowly '
+  - create a primitive cube called "Sam" of which the size is 0.3, Sam is vibrating
+  - create a primitive cube called "Tom" of which the size is 0.3, Tom is rotating
+    ramdomly
+  - create a primitive sphere called "Mary" of which the size is 0.3, Mary is getting
+    larger and smaller all the time like it can breathe
+  index: 2
   replacements: []
   reminders:
   - Do not require any explanations
@@ -23,3 +30,4 @@ MonoBehaviour:
   - Do not require any prefabs
   - Do not require any reference
   - All reference should not be null
+  - the positoin of generation is (0,0.3,0), if there is no clear indication
