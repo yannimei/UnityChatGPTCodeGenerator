@@ -22,7 +22,9 @@ MonoBehaviour:
     ramdomly
   - create a primitive sphere called "Mary" of which the size is 0.3, Mary is getting
     larger and smaller all the time like it can breathe
-  index: 2
+  - create a primitive sphere called "Mary" of which the size is 0.3, after 5 second
+    Mary disappear
+  index: 4
   replacements: []
   reminders:
   - Do not require any explanations
