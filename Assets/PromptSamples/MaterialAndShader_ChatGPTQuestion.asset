@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162a0293d3600954a9165bdb3d90c9a6, type: 3}
+  m_Name: MaterialAndShader_ChatGPTQuestion
+  m_EditorClassIdentifier: 
+  scenarioTitle: MaterialShader
+  promptPrefixConstant: create a untiy c# script called "Generation" to
+  promptList:
+  - create a primitive cube called "Tom" of which the size is 0.3 and it is blue.
+    If X button is pressed, Tom will blink into red color for three times and then
+    go back to original blue color.
+  - create a primitive cube called "Lisa" of which the size is 0.3 and it is white.
+    Lisa is becoming more and more black continuously
+  - create a primitive cube called "Mary" of which the size is 0.3 and it is blue.
+    If X button is clicked, Mary will have a new material with a Transparent shader
+    and the alpha value is 0.2f, and the transparent shader can be set by "Legacy
+    Shaders/Transparent/Diffuse". If the Y button is clicked, Mary will go back to
+    original blue color.
+  index: 1
+  replacements: []
+  reminders:
+  - Do not require any explanations
+  - Always in include code with markdown
+  - Do not require any prefabs
+  - Do not require any reference
+  - All reference should not be null
+  - the positoin of generation is (0,0.3,0), if there is no clear indication
+  - Oculus button A/B/X/Y is respectively associated with if (OVRInput.Get(OVRInput.Button.One/Two/Three/Four))
