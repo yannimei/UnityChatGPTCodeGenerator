@@ -3159,7 +3159,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   askButton: {fileID: 353485464}
   chatGPTAnswer: {fileID: 208255855}
-  chatGPTQuestion: {fileID: 11400000, guid: 5bc09073ac60b174096fe6bd0b441840, type: 2}
+  chatGPTQuestion: {fileID: 11400000, guid: 95f4e60a7d0daba4182da2c540cc596a, type: 2}
   questionText: {fileID: 626870793}
   immediateCompilation: 0
 --- !u!4 &1560401040

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162a0293d3600954a9165bdb3d90c9a6, type: 3}
+  m_Name: ParticleSystem_ChatGPTQuestion_GenerateCube 2
+  m_EditorClassIdentifier: 
+  scenarioTitle: ParticleSystem
+  promptPrefixConstant: create a untiy c# script called "Generation" to
+  promptList:
+  - create an empaty game object of which the size is 2, and then add a particle
+    system to it, the particle has white material and intense, like heavy snow
+  index: 0
+  replacements: []
+  reminders:
+  - Do not require any explanations
+  - Always in include code with markdown
+  - Do not require any prefabs
+  - Do not require any reference
+  - All reference should not be null
+  - the positoin of generation is (0,5,0), if there is no clear indication

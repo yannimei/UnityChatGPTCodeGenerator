@@ -21,7 +21,7 @@ MonoBehaviour:
   - create a primitive cube called "Tom" of which the size is 0.3. However, Tom will
     vibrated crazily if Oculus X button is pressed, and it will back to be static
     and to its original position if Oculus Y button is pressed
-  index: 1
+  index: 0
   replacements: []
   reminders:
   - Do not require any explanations
