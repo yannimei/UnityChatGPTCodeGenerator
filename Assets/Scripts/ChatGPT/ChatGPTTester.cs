@@ -27,7 +27,7 @@ public class ChatGPTTester : MonoBehaviour
 
     public bool immediateCompilation;
 
-    public bool voiceInput;
+    public bool voiceInput = true;
 
     public Text transcription;
 
@@ -83,5 +83,10 @@ public class ChatGPTTester : MonoBehaviour
     public void ProcessAndCompileResponse()
     {
         RoslynCodeRunner.Instance.RunCode(response.Data);
+    }
+
+    public void SetVoiceInputValue(bool newToggleValue)
+    {
+        voiceInput = newToggleValue;
     }
 }

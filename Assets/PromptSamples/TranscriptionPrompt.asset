@@ -32,3 +32,4 @@ MonoBehaviour:
   - Oculus button A/B/X/Y is respectively associated with if (OVRInput.Get(OVRInput.Button.One/Two/Three/Four))
   - Find the left controller with gameobject.find "OVRCameraRig/TrackingSpace/LeftHandAnchor".
   - Find the right controller with gameobject.find "OVRCameraRig/TrackingSpace/RightHandAnchor".
+  - The size of the generated primitive shape is 0.3 if there is no clear indication
