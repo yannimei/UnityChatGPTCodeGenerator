@@ -27,13 +27,20 @@ public class ChatGPTTester : MonoBehaviour
 
     public bool immediateCompilation;
 
+    public bool voiceInput;
+
+    public Text transcription;
+
     public void Execute()
     {
-        
-        gptPrompt = $"{chatGPTQuestion.promptPrefixConstant} {chatGPTQuestion.prompt}";
+        //if voiceInput is enabled then use script
+        var selectedPrompt = voiceInput ? transcription.text : chatGPTQuestion.prompt;
 
-        //display the given prompt
-        questionText.text = chatGPTQuestion.prompt;
+        //gptPrompt = $"{chatGPTQuestion.promptPrefixConstant} {chatGPTQuestion.prompt}";
+        gptPrompt = $"{chatGPTQuestion.promptPrefixConstant} {selectedPrompt}";
+
+        //questionText.text = chatGPTQuestion.prompt;
+        questionText.text = selectedPrompt;
 
         // handle replacements
         Array.ForEach(chatGPTQuestion.replacements, r =>
