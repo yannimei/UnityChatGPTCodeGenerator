@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1568,7 +1568,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &705507994
 Light:
   m_ObjectHideFlags: 0
@@ -3250,7 +3250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   askButton: {fileID: 353485464}
   chatGPTAnswer: {fileID: 208255855}
-  chatGPTQuestion: {fileID: 11400000, guid: 228d5a075be78604cadf51b4ef291f8d, type: 2}
+  chatGPTQuestion: {fileID: 11400000, guid: 1123e841e3ac31f408c0c7f22adea3a7, type: 2}
   questionText: {fileID: 626870793}
   immediateCompilation: 0
 --- !u!4 &1560401040
@@ -3710,6 +3710,7 @@ MonoBehaviour:
   namespaces:
   - System
   - UnityEngine
+  - System.Collections
   code: 
   additionalCode: GameObject.Find("ChatGPTTester").AddComponent<Generation>();
   OnRunCodeCompleted:

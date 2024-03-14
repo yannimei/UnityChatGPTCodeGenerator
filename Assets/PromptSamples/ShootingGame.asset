@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162a0293d3600954a9165bdb3d90c9a6, type: 3}
+  m_Name: ShootingGame
+  m_EditorClassIdentifier: 
+  scenarioTitle: InputReaction
+  promptPrefixConstant: create a untiy c# script called "Generation" to
+  promptList:
+  - "everytime when Oculus X button is pressed , create only one primitive sphere
+    called \"Tom\" of which the size is 0.1f, with rigidbody and collider. Tom will
+    run forward out of the left controllert. dont use ienumerator. \r\nTo prevent
+    multiple Tom spawns from a single button press in Unity, detect the initial press
+    by tracking the button's state change from not pressed to pressed, rather than
+    continuously spawning Tom while the button is pressed.\n"
+  - create a primitive cube called "Jack" of which the size is 0.5f, with collider
+    and rigidbody but the gravity is off, the original position is (1.50f,0.8f,1.5f),
+    if Jack is collided by a gameobjct of which the name is Tom, Jack will become
+    red
+  index: 1
+  replacements: []
+  reminders:
+  - Do not require any explanations
+  - Always in include code with markdown
+  - Do not require any prefabs
+  - Do not require any reference
+  - All reference should not be null
+  - Oculus button A/B/X/Y is respectively associated with if (OVRInput.Get(OVRInput.Button.One/Two/Three/Four))
+  - Find the left controller with gameobject.find "OVRCameraRig/TrackingSpace/LeftHandAnchor".
+  - Find the right controller with gameobject.find "OVRCameraRig/TrackingSpace/RightHandAnchor".
