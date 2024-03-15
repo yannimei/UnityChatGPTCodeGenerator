@@ -19,6 +19,8 @@ namespace Samples.Whisper
         //private float time;
         private OpenAIApi openai = new OpenAIApi();
 
+        public Toggle refineToggle;
+
         public void Start()
         {
             #if UNITY_WEBGL && !UNITY_EDITOR
@@ -55,6 +57,9 @@ namespace Samples.Whisper
 
         public async void EndRecording()
         {
+            //record previous message
+            string priorMessage = message.text;
+            
             message.text = "Transcripting...";
             
             #if !UNITY_WEBGL
@@ -72,8 +77,16 @@ namespace Samples.Whisper
             };
             var res = await openai.CreateAudioTranscription(req);
 
-            progressBar.fillAmount = 0;
-            message.text = res.Text;
+           // progressBar.fillAmount = 0;
+           
+            if (!refineToggle.isOn)
+            {
+                message.text = res.Text;
+            } else
+            {
+                message.text = priorMessage + ". " + res.Text;
+            }
+            
             //recordButton.enabled = true;
         }
 
