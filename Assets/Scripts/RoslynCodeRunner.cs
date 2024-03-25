@@ -75,6 +75,7 @@ public class RoslynCodeRunner : Singleton<RoslynCodeRunner>
                 typeof(Light).Assembly,
                 typeof(PhysicMaterial).Assembly,
                 typeof(Camera).Assembly,
+                typeof(TextMesh).Assembly,
                 typeof(ParticleSystem).Assembly);
 
     }
