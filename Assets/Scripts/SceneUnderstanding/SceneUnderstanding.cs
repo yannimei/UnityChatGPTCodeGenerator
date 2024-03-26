@@ -9,7 +9,7 @@ public class SceneUnderstanding : MonoBehaviour
     public void ExportScene()
     {
         string sceneJson = SceneToJsonExporter.SerializeSceneToJson();
-        string path = Application.dataPath + "/Resources/YourScene.json"; // Specify the path here
+        string path = Application.dataPath + "/SceneJson/YourScene.json"; // Specify the path here
         File.WriteAllText(path, sceneJson);
         Debug.Log("Scene exported to JSON at: " + path);
 
@@ -18,15 +18,6 @@ public class SceneUnderstanding : MonoBehaviour
     #endif
     }
 
-
-    void Update()
-    {
-        // Check if the 'A' key was pressed this frame
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            ExportScene();
-        }
-    }
 }
 
 

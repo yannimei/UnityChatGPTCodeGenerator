@@ -1,0 +1,60 @@
+{
+  "objects": [
+    {
+      "name": "OVRCameraRig",
+      "position": "0,0,0",
+      "rotation": "0,0,0",
+      "components": [
+        "UnityEngine.Transform",
+        "OVRCameraRig",
+        "OVRManager",
+        "OVRHeadsetEmulator",
+        "OVRPassthroughLayer",
+        "OVRSystemPerfMetrics+OVRSystemPerfMetricsTcpServer"
+      ]
+    },
+    {
+      "name": "Directional Light",
+      "position": "0,3,0",
+      "rotation": "50,330,0",
+      "components": [
+        "UnityEngine.Transform",
+        "UnityEngine.Light"
+      ]
+    },
+    {
+      "name": "Plane",
+      "position": "0,-0.06,0",
+      "rotation": "0,0,0",
+      "components": [
+        "UnityEngine.Transform",
+        "UnityEngine.MeshFilter",
+        "UnityEngine.MeshRenderer",
+        "UnityEngine.BoxCollider",
+        "UnityEngine.Rigidbody"
+      ]
+    },
+    {
+      "name": "Sphere",
+      "position": "1.943176,1.000045,20.70168",
+      "rotation": "0,0,0",
+      "components": [
+        "UnityEngine.Transform",
+        "UnityEngine.MeshFilter",
+        "UnityEngine.MeshRenderer",
+        "UnityEngine.SphereCollider"
+      ]
+    },
+    {
+      "name": "Cube",
+      "position": "1.943176,1.000045,20.70168",
+      "rotation": "0,0,0",
+      "components": [
+        "UnityEngine.Transform",
+        "UnityEngine.MeshFilter",
+        "UnityEngine.MeshRenderer",
+        "UnityEngine.BoxCollider"
+      ]
+    }
+  ]
+}

@@ -32,7 +32,7 @@ MonoBehaviour:
   - randomely spawn brown color primitive cylinder, of which the size is (0.05,0.2,0.05)
     on the cubes on the terrain. maybe 20 cylinders. you can freen define a brown
     color rgb value
-  index: 5
+  index: 1
   replacements: []
   reminders:
   - Do not require any explanations
