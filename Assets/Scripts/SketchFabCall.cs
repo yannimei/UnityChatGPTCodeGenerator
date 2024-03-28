@@ -1,30 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System;
-using Sketchfab;
+
 
 public class SketchFabCall : MonoBehaviour
 {
-    public string email = "yannimei951225@gmail.com";
+    public string email = "mei_yanni@163.com";
     public string password = "Myn19951225.";
     public string accessToken;
-
     public List<SketchfabModel> m_ModelList;
+
+    public Button searchButton;
+    public Text inputKeyowrd;
 
     // Start is called before the first frame update
     void Start()
     {
+        // Add a listener to the button to handle clicks
+        searchButton.onClick.AddListener(OnSearchButtonClicked);
+
+        //Log in the sketchfab account
         this.LogIn();
-
-        //string[] searchKeywords = { "Dog" }; // This can now support multiple keywords
-        //this.SearchModels(searchKeywords, true);
-
-    
-        SearchModels(new string[] { "Mouse" }, (_uid) =>
-        {
-            GetModel(_uid); // Call GetModel with the retrieved _uid
-        });
     }
 
     public void LogIn()
@@ -62,33 +60,6 @@ public class SketchFabCall : MonoBehaviour
         }, enableCache);
     }
 
-
-    //public void SearchModels(string[] keywords, bool isDownloadable = true)
-    //{
-    //    UnityWebRequestSketchfabModelList.Parameters p = new UnityWebRequestSketchfabModelList.Parameters
-    //    {
-    //        downloadable = isDownloadable
-    //    };
-
-    //    SketchfabAPI.ModelSearch((SketchfabResponse<SketchfabModelList> _answer) =>
-    //    {
-    //        if (_answer.Success)
-    //        {
-    //            // Assuming 'm_ModelList' is where you want to store your models
-    //            m_ModelList = _answer.Object.Models;
-    //            // Update UI or notify the user
-    //            Debug.Log("sucessfully find" + m_ModelList[0].Uid);
-    //            _uid = m_ModelList[0].Uid;
-    //        }
-    //        else
-    //        {
-    //            // Handle errors (e.g., log them, notify the user)
-    //            Debug.LogError($"Error retrieving models: {_answer.ErrorMessage}");
-    //        }
-    //    }, p, keywords);
-
-    //}
-
     public void SearchModels(string[] keywords, Action<string> onModelFoundCallback, bool isDownloadable = true)
     {
         UnityWebRequestSketchfabModelList.Parameters p = new UnityWebRequestSketchfabModelList.Parameters
@@ -112,6 +83,18 @@ public class SketchFabCall : MonoBehaviour
                 Debug.LogError($"Error retrieving models: {_answer.ErrorMessage}");
             }
         }, p, keywords);
+    }
+
+    public void OnSearchButtonClicked()
+    {
+        // Retrieve the keyword(s) from the input field
+        string[] keywords = new string[] { inputKeyowrd.text };
+
+        // Call SearchModels with the keyword(s) and a callback
+        SearchModels(keywords, (_uid) =>
+        {
+            GetModel(_uid); // Implement GetModel as shown previously
+        });
     }
 
 }
