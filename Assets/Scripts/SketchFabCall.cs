@@ -55,6 +55,7 @@ public class SketchFabCall : MonoBehaviour
                 if (obj != null)
                 {
                     // Here you can do anything you like to obj (A unity game object containing the sketchfab model)
+                    obj.name = inputKeyowrd.text;
                 }
             }, enableCache);
         }, enableCache);
