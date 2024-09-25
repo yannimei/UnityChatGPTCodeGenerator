@@ -16,7 +16,7 @@ public class ChatGPTTester : MonoBehaviour
     //private string prompt;
 
     [SerializeField]
-    private ChatGPTQuestion chatGPTQuestion;
+    private ChatGPTQuestion[] chatGPTQuestion;
 
     [SerializeField]
     private TextMeshProUGUI questionText;
@@ -31,31 +31,31 @@ public class ChatGPTTester : MonoBehaviour
 
     public Text transcription;
 
-    public void Execute()
+    public void Execute(int conversationID)
     {
         //if voiceInput is enabled then use script
-        var selectedPrompt = voiceInput ? transcription.text : chatGPTQuestion.prompt;
+        var selectedPrompt = voiceInput ? transcription.text : chatGPTQuestion[conversationID].prompt;
 
         //gptPrompt = $"{chatGPTQuestion.promptPrefixConstant} {chatGPTQuestion.prompt}";
-        gptPrompt = $"{chatGPTQuestion.promptPrefixConstant} {selectedPrompt}";
+        gptPrompt = $"{chatGPTQuestion[conversationID].promptPrefixConstant} {selectedPrompt}";
 
         //questionText.text = chatGPTQuestion.prompt;
         questionText.text = selectedPrompt;
 
         // handle replacements
-        Array.ForEach(chatGPTQuestion.replacements, r =>
+        Array.ForEach(chatGPTQuestion[conversationID].replacements, r =>
         {
             gptPrompt = gptPrompt.Replace("{" + $"{r.replacementType}" + "}", r.value);
         });
 
         // handle reminders
-        if (chatGPTQuestion.reminders.Length > 0)
+        if (chatGPTQuestion[conversationID].reminders.Length > 0)
         {
-            gptPrompt += $", {string.Join(',', chatGPTQuestion.reminders)}";
+            gptPrompt += $", {string.Join(',', chatGPTQuestion[conversationID].reminders)}";
         }
 
         
-        StartCoroutine(ChatGPTClient.Instance.Ask(gptPrompt, (r) =>
+        StartCoroutine(ChatGPTClient.Instance.Ask(gptPrompt, conversationID, (r) =>
            {
                //pass the generated code (r) to response
                response = r;

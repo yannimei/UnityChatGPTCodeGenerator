@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c472c23d660c63940b8a8fea0fb3d477, type: 3}
-  m_Name: ChatGPTSetting
+  m_Name: ChatGPTSetting1
   m_EditorClassIdentifier: 
-  apiURL: http://127.0.0.1:5000/chatgpt/question
+  apiURL: http://127.0.0.1:5000/chatgpt/question1
   apiKey: 
   reminders: []

@@ -12,7 +12,7 @@ namespace Samples.Whisper
         [SerializeField] private Dropdown dropdown;
         
         private readonly string fileName = "output.wav";
-        private readonly int duration = 60;
+        private readonly int duration = 30;
         
         private AudioClip clip;
         //private bool isRecording;

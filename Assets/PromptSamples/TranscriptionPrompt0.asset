@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 162a0293d3600954a9165bdb3d90c9a6, type: 3}
+  m_Name: TranscriptionPrompt0
+  m_EditorClassIdentifier: 
+  scenarioTitle: Transcription
+  promptPrefixConstant: create a untiy c# script called "Generation" to
+  promptList:
+  - "everytime when Oculus X button is pressed , create only one primitive sphere
+    called \"Tom\" of which the size is 0.1f, with rigidbody and collider. Tom will
+    run forward out of the left controllert. dont use ienumerator. \r\nTo prevent
+    multiple Tom spawns from a single button press in Unity, detect the initial press
+    by tracking the button's state change from not pressed to pressed, rather than
+    continuously spawning Tom while the button is pressed.\n"
+  - pyramid
+  - turn off the directional light
+  - create a minecraft terrain of which the whole size is 5 * 5, out of primitive
+    cubes of which the size is 0.2, give them green color, and make it a bit bumpy
+  - if i click the Oculus A button, spawn brown color primitive cylinder, of which
+    the size is (0.05,0.2,0.05) on the postion of my right controller. you can freen
+    define a brown color rgb value
+  - randomely spawn brown color primitive cylinder, of which the size is (0.05,0.2,0.05)
+    on the cubes on the terrain. maybe 20 cylinders. you can freen define a brown
+    color rgb value
+  - let me be bigger, "me" means the user, which is means OVRCameraRig
+  index: 6
+  replacements: []
+  reminders:
+  - Do not require any explanations
+  - Always in include code with markdown
+  - Do not require any prefabs
+  - Do not require any reference
+  - All reference should not be null
+  - Oculus button A/B/X/Y is respectively associated with if (OVRInput.Get(OVRInput.Button.One/Two/Three/Four))
+  - The size of the generated primitive shape is 0.3 if there is no clear indication

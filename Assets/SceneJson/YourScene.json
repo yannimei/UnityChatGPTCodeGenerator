@@ -35,25 +35,59 @@
       ]
     },
     {
-      "name": "Sphere",
-      "position": "1.943176,1.000045,20.70168",
-      "rotation": "0,0,0",
-      "components": [
-        "UnityEngine.Transform",
-        "UnityEngine.MeshFilter",
-        "UnityEngine.MeshRenderer",
-        "UnityEngine.SphereCollider"
-      ]
-    },
-    {
       "name": "Cube",
-      "position": "1.943176,1.000045,20.70168",
+      "position": "-8.806709,0.42,-12.62",
       "rotation": "0,0,0",
       "components": [
         "UnityEngine.Transform",
         "UnityEngine.MeshFilter",
         "UnityEngine.MeshRenderer",
         "UnityEngine.BoxCollider"
+      ]
+    },
+    {
+      "name": "Sketchfab",
+      "position": "-1.119747,-2.394949,14.05308",
+      "rotation": "0,0,0",
+      "components": [
+        "UnityEngine.Transform",
+        "SketchFabCall"
+      ]
+    },
+    {
+      "name": "SketchfabWebRequestManager",
+      "position": "0,0,0",
+      "rotation": "0,0,0",
+      "components": [
+        "UnityEngine.Transform",
+        "SketchfabWebRequestManager"
+      ]
+    },
+    {
+      "name": "Cube",
+      "position": "0,0,0",
+      "rotation": "0,0,0",
+      "components": [
+        "UnityEngine.Transform",
+        "UnityEngine.MeshFilter",
+        "UnityEngine.BoxCollider",
+        "UnityEngine.MeshRenderer"
+      ]
+    },
+    {
+      "name": "Monster.",
+      "position": "0,0,0",
+      "rotation": "0,0,0",
+      "components": [
+        "UnityEngine.Transform"
+      ]
+    },
+    {
+      "name": "Kitchen",
+      "position": "0,0,0",
+      "rotation": "0,0,0",
+      "components": [
+        "UnityEngine.Transform"
       ]
     }
   ]

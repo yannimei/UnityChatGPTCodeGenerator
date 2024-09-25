@@ -6,12 +6,12 @@ using UnityEngine.Networking;
 public class ChatGPTClient : Singleton<ChatGPTClient>
 {
     [SerializeField]
-    private ChatGTPSetting chatGPTSetting;
+    private ChatGTPSetting[] chatGPTSetting;
 
     //what is callback
-    public IEnumerator Ask (string prompt, System.Action<ChatGPTResponse> callback)
+    public IEnumerator Ask (string prompt, int conversationID, System.Action<ChatGPTResponse> callback)
     {
-        var url = chatGPTSetting.apiURL;
+        var url = chatGPTSetting[conversationID].apiURL;
 
         using (UnityWebRequest request = new UnityWebRequest(url, "POST"))
         {
