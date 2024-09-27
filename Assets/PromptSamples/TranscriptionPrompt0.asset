@@ -21,18 +21,34 @@ MonoBehaviour:
     multiple Tom spawns from a single button press in Unity, detect the initial press
     by tracking the button's state change from not pressed to pressed, rather than
     continuously spawning Tom while the button is pressed.\n"
-  - pyramid
-  - turn off the directional light
-  - create a minecraft terrain of which the whole size is 5 * 5, out of primitive
-    cubes of which the size is 0.2, give them green color, and make it a bit bumpy
-  - if i click the Oculus A button, spawn brown color primitive cylinder, of which
-    the size is (0.05,0.2,0.05) on the postion of my right controller. you can freen
-    define a brown color rgb value
+  - "for generating Go-Go VR interaction for the lefthand. Just create a small primitive
+    sphere to represent a handmodel, and get the transform of the left controller
+    by accessing OVRCameraRig/TrackingSpace/LeftHandAnchor, use gameobject.find.  
+    please follow the thinking steps:\n\nController and Hand Model and Head: The
+    controller is your VR controller transform (representing the actual hand position).\r\nThe
+    handModel represents the virtual hand or the object used to interact with the
+    environment. the head is your VR camera (OVRCameraRig/TrackingSpace/CenterEyeAnchor)\r\n\r\nReach
+    Threshold: If the absolute distance between the controller and head is less than
+    0.2 meter, the hand behaves normally and at the same position with controller.
+    \r\n\r\nMake Hand Visual Invisible: disable the game object (OVRCameraRig/OVRInteraction/Controllers/LeftController/OVRControllerVisual)\r\n\r\nScaling
+    Logic: If the absolute distance between the controller and head is more than
+    0.2 meter, the distance between controller and handModel increase, it start increased
+    based on the scaleFactor and the handModel moves further away towards the direction
+    which the controller go for. GetGoGoScale() computes the non-linear scaling factor.\r\n\n\n\n
+    \n"
+  - if i click the Oculus A button, the OVRCameraRig will be at (0,3,3), find the
+    OVRCameraRig using gameobject.find
+  - if i click the Oculus A button, i want to fly. fly means OVRCameraRig has continuous
+    movement in the mid air.  find the OVRCameraRig using gameobject.find
+  - if i click the Oculus A button, i can jump very high. "i" mean the user, mean
+    OVRCameraRig. create a realistic animated movement of jumping which go up into
+    the sky and go back to the floor but dont use rigidbody just change the position
+    value.  find the OVRCameraRig using gameobject.find
   - randomely spawn brown color primitive cylinder, of which the size is (0.05,0.2,0.05)
     on the cubes on the terrain. maybe 20 cylinders. you can freen define a brown
     color rgb value
   - let me be bigger, "me" means the user, which is means OVRCameraRig
-  index: 6
+  index: 1
   replacements: []
   reminders:
   - Do not require any explanations
@@ -40,5 +56,3 @@ MonoBehaviour:
   - Do not require any prefabs
   - Do not require any reference
   - All reference should not be null
-  - Oculus button A/B/X/Y is respectively associated with if (OVRInput.Get(OVRInput.Button.One/Two/Three/Four))
-  - The size of the generated primitive shape is 0.3 if there is no clear indication
