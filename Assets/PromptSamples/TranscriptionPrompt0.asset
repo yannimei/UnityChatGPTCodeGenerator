@@ -15,12 +15,8 @@ MonoBehaviour:
   scenarioTitle: Transcription
   promptPrefixConstant: create a untiy c# script called "Generation" to
   promptList:
-  - "everytime when Oculus X button is pressed , create only one primitive sphere
-    called \"Tom\" of which the size is 0.1f, with rigidbody and collider. Tom will
-    run forward out of the left controllert. dont use ienumerator. \r\nTo prevent
-    multiple Tom spawns from a single button press in Unity, detect the initial press
-    by tracking the button's state change from not pressed to pressed, rather than
-    continuously spawning Tom while the button is pressed.\n"
+  - Duplicate my right hand (XRRig/CameraOffset/RightController/RightHand, use gameobject.find)
+    at the same hierarchy, and make it some offset
   - "for generating Go-Go VR interaction for the lefthand. Just create a small primitive
     sphere to represent a handmodel, and get the transform of the left controller
     by accessing OVRCameraRig/TrackingSpace/LeftHandAnchor, use gameobject.find.  
@@ -34,8 +30,7 @@ MonoBehaviour:
     Logic: If the absolute distance between the controller and head is more than
     0.2 meter, the distance between controller and handModel increase, it start increased
     based on the scaleFactor and the handModel moves further away towards the direction
-    which the controller go for. GetGoGoScale() computes the non-linear scaling factor.\r\n\n\n\n
-    \n"
+    which the controller go for. GetGoGoScale() computes the non-linear scaling factor.\r\n\n\n\n\n"
   - if i click the Oculus A button, the OVRCameraRig will be at (0,3,3), find the
     OVRCameraRig using gameobject.find
   - if i click the Oculus A button, i want to fly. fly means OVRCameraRig has continuous
@@ -48,7 +43,7 @@ MonoBehaviour:
     on the cubes on the terrain. maybe 20 cylinders. you can freen define a brown
     color rgb value
   - let me be bigger, "me" means the user, which is means OVRCameraRig
-  index: 1
+  index: 0
   replacements: []
   reminders:
   - Do not require any explanations
