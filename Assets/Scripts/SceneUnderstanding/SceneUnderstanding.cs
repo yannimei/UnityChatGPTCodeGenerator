@@ -6,16 +6,18 @@ using Newtonsoft.Json;
 
 public class SceneUnderstanding : MonoBehaviour
 {
-    public void ExportScene()
+    public string ExportScene(bool writeFile=false)
     {
-        string sceneJson = SceneToJsonExporter.SerializeSceneToJson();
+        string sceneJson = SceneToJsonExporter.SerializeSceneToJson(true);
         string path = Application.dataPath + "/SceneJson/YourScene.json"; // Specify the path here
-        File.WriteAllText(path, sceneJson);
+        if (writeFile) File.WriteAllText(path, sceneJson);
         Debug.Log("Scene exported to JSON at: " + path);
 
     #if UNITY_EDITOR
             UnityEditor.AssetDatabase.Refresh(); // Refresh the AssetDatabase to show the new file in Unity Editor
-    #endif
+#endif
+
+        return sceneJson;
     }
 
 }
@@ -27,18 +29,25 @@ public class GameObjectInfo
 {
     public string name;
     //public string parentName;
-    public string position;
-    public string rotation; // Added rotation field
+    //public string position;
+    //public string rotation; 
     public List<string> components = new List<string>(); // component it has been attached
     //public List<GameObjectInfo> children = new List<GameObjectInfo>(); // get children info
 
     // Constructor
-    public GameObjectInfo(string name, Vector3 positionV, Vector3 rotationV, List<string> components)
+    //public GameObjectInfo(string name, Vector3 positionV, Vector3 rotationV, List<string> components)
+    //{
+    //    this.name = name;
+    //    //this.parentName = parentName;
+    //    this.position = $"{positionV.x},{positionV.y},{positionV.z}";
+    //    this.rotation = $"{rotationV.x},{rotationV.y},{rotationV.z}";
+    //    this.components = components;
+    //}
+
+    public GameObjectInfo(string name, List<string> components)
     {
         this.name = name;
         //this.parentName = parentName;
-        this.position = $"{positionV.x},{positionV.y},{positionV.z}";
-        this.rotation = $"{rotationV.x},{rotationV.y},{rotationV.z}";
         this.components = components;
     }
 }
@@ -85,18 +94,12 @@ public static class SceneToJsonExporter
         }
 
         //GameObjectInfo info = new GameObjectInfo(obj.name, parent?.name, position, rotation, components);
-        GameObjectInfo info = new GameObjectInfo(obj.name, position, rotation, components);
-
-        //foreach (Transform child in obj.transform)
-        //{
-        //    info.children.Add(ProcessGameObject(child.gameObject, obj));
-        //}
-
+        GameObjectInfo info = new GameObjectInfo(obj.name, components);
         return info;
     }
 
     //Serialize to JSON
-    public static string SerializeSceneToJson()
+    public static string SerializeSceneToJson(bool clean=false)
     {
         //List<GameObjectInfo> sceneObjects = GetSceneObjects();
         //return JsonUtility.ToJson(new { objects = sceneObjects }, true);
@@ -111,7 +114,9 @@ public static class SceneToJsonExporter
             Debug.Log("Serializing " + sceneObjects.Count + " objects.");
         }
         //return JsonUtility.ToJson(new { objects = sceneObjects }, true);
-        return JsonConvert.SerializeObject(new { objects = sceneObjects }, Formatting.Indented);
+        string result = JsonConvert.SerializeObject(new { objects = sceneObjects }, Formatting.Indented);
+        if (clean) result = result.Replace(" ", "").Replace("\"", "").Replace("\n", "").Replace("\r", "").Replace(System.Environment.NewLine, "");
+        return result;
     }
 }
 

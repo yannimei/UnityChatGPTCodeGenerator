@@ -23,7 +23,9 @@ public class InputTest : MonoBehaviour
         }
 
         // Find the right hand
-        rightHand = GameObject.Find("XRRig/CameraOffset/RightController/RightHand").transform;
+        rightHand = GameObject.Find("RightHand").transform;
+
+        Debug.LogWarning(rightHand.parent.name);
 
         if (rightHand == null)
         {

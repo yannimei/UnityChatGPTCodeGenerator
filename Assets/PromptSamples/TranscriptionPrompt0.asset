@@ -48,6 +48,6 @@ MonoBehaviour:
   reminders:
   - Do not require any explanations
   - Always in include code with markdown
-  - Do not require any prefabs
+  - Do not require any prefabs, use gameobject.find
   - Do not require any reference
   - All reference should not be null

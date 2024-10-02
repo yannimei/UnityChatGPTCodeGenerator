@@ -16,6 +16,12 @@ public class ChatGPTTester : MonoBehaviour
     //private string prompt;
 
     [SerializeField]
+    private SceneUnderstanding sceneUnderstanding;
+
+    [SerializeField]
+    private int conversationIDScene = 2;
+
+    [SerializeField]
     private ChatGPTQuestion[] chatGPTQuestion;
 
     [SerializeField]
@@ -31,11 +37,34 @@ public class ChatGPTTester : MonoBehaviour
 
     public Text transcription;
 
+    
+
     public void Execute(int conversationID)
     {
+        
         //if voiceInput is enabled then use script
         var selectedPrompt = voiceInput ? transcription.text : chatGPTQuestion[conversationID].prompt;
 
+        //get sceneJson
+        string sceneInfo = sceneUnderstanding.ExportScene();
+
+        StartCoroutine(ChatGPTClient.Instance.Ask($"Request: {selectedPrompt},\n SceneJSON: {sceneInfo}", conversationIDScene, (r) =>
+        {
+            CallCodeGenerator(conversationID, $"{selectedPrompt}, {r}");
+        }
+       ));
+
+       
+    }
+
+    //public void ProcessResponse(ChatGPTResponse response)
+    //{
+    //    Logger.Instance.LogInfo(response.Data);
+    //    //Roslyn run the code
+    //    RoslynCodeRunner.Instance.RunCode(response.Data);
+    //}
+    private void CallCodeGenerator(int conversationID, string selectedPrompt)
+    {
         //gptPrompt = $"{chatGPTQuestion.promptPrefixConstant} {chatGPTQuestion.prompt}";
         gptPrompt = $"{chatGPTQuestion[conversationID].promptPrefixConstant} {selectedPrompt}";
 
@@ -54,30 +83,23 @@ public class ChatGPTTester : MonoBehaviour
             gptPrompt += $", {string.Join(',', chatGPTQuestion[conversationID].reminders)}";
         }
 
-        
+
         StartCoroutine(ChatGPTClient.Instance.Ask(gptPrompt, conversationID, (r) =>
-           {
-               //pass the generated code (r) to response
-               response = r;
+        {
+            //pass the generated code (r) to response
+            response = r;
 
-               // log the code to the text box
-               Logger.Instance.LogInfo(response.Data);
+            // log the code to the text box
+            Logger.Instance.LogInfo(response.Data);
 
-               //if true then run the genreated code
-               if (immediateCompilation)
-               {
-                   ProcessAndCompileResponse();
-               }
-           }
+            //if true then run the genreated code
+            if (immediateCompilation)
+            {
+                ProcessAndCompileResponse();
+            }
+        }
         ));
     }
-
-    //public void ProcessResponse(ChatGPTResponse response)
-    //{
-    //    Logger.Instance.LogInfo(response.Data);
-    //    //Roslyn run the code
-    //    RoslynCodeRunner.Instance.RunCode(response.Data);
-    //}
 
 
     public void ProcessAndCompileResponse()
