@@ -15,8 +15,8 @@ MonoBehaviour:
   scenarioTitle: Transcription
   promptPrefixConstant: create a untiy c# script called "Generation" to
   promptList:
-  - Duplicate my right hand (XRRig/CameraOffset/RightController/RightHand, use gameobject.find)
-    at the same hierarchy, and make it some offset
+  - move me (XRRig, use gameobject.find) when I rotate my head (XRRig/CameraOffset/MainCamera,
+    use gameobject.find)
   - "for generating Go-Go VR interaction for the lefthand. Just create a small primitive
     sphere to represent a handmodel, and get the transform of the left controller
     by accessing OVRCameraRig/TrackingSpace/LeftHandAnchor, use gameobject.find.  
