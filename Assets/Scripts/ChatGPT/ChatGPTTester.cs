@@ -22,6 +22,9 @@ public class ChatGPTTester : MonoBehaviour
     private int conversationIDScene = 2;
 
     [SerializeField]
+    private int conversationIDCodeInstructor = 3;
+
+    [SerializeField]
     private ChatGPTQuestion[] chatGPTQuestion;
 
     [SerializeField]
@@ -48,13 +51,12 @@ public class ChatGPTTester : MonoBehaviour
         //get sceneJson
         string sceneInfo = sceneUnderstanding.ExportScene();
 
-        StartCoroutine(ChatGPTClient.Instance.Ask($"Request: {selectedPrompt},\n SceneJSON: {sceneInfo}", conversationIDScene, (r) =>
+        StartCoroutine(ChatGPTClient.Instance.Ask($"Request: {selectedPrompt},\n SceneJSON: {sceneInfo}", conversationIDScene, false, (r) =>
         {
-            CallCodeGenerator(conversationID, $"{selectedPrompt}, {r}");
+            //CallCodeGenerator(conversationID, $"{selectedPrompt}, {r}");
+            CallCodeInstructor(conversationIDCodeInstructor, conversationID, $"Request: {selectedPrompt} \n {r.Data}");
         }
-       ));
-
-       
+       ));  
     }
 
     //public void ProcessResponse(ChatGPTResponse response)
@@ -62,7 +64,17 @@ public class ChatGPTTester : MonoBehaviour
     //    Logger.Instance.LogInfo(response.Data);
     //    //Roslyn run the code
     //    RoslynCodeRunner.Instance.RunCode(response.Data);
-    //}
+    //}.va
+
+    private void CallCodeInstructor(int conversationID, int AnotherConversationID, string prompt)
+    {
+  
+        StartCoroutine(ChatGPTClient.Instance.Ask(prompt,conversationID, false, (r) =>
+        {
+            CallCodeGenerator(AnotherConversationID, r.Data);
+        }));
+    }
+
     private void CallCodeGenerator(int conversationID, string selectedPrompt)
     {
         //gptPrompt = $"{chatGPTQuestion.promptPrefixConstant} {chatGPTQuestion.prompt}";
@@ -84,7 +96,7 @@ public class ChatGPTTester : MonoBehaviour
         }
 
 
-        StartCoroutine(ChatGPTClient.Instance.Ask(gptPrompt, conversationID, (r) =>
+        StartCoroutine(ChatGPTClient.Instance.Ask(gptPrompt, conversationID, true, (r) =>
         {
             //pass the generated code (r) to response
             response = r;

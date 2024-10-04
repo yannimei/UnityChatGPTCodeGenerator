@@ -6509,7 +6509,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184269727}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.996, y: 0.89, z: -0.835}
+  m_LocalPosition: {x: -2.019, y: 0.89, z: -1.582}
   m_LocalScale: {x: 0.13, y: 0.13, z: 0.13}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -8528,6 +8528,7 @@ MonoBehaviour:
   chatGPTAnswer: {fileID: 208255855}
   sceneUnderstanding: {fileID: 1393590716}
   conversationIDScene: 2
+  conversationIDCodeInstructor: 3
   chatGPTQuestion:
   - {fileID: 11400000, guid: 1123e841e3ac31f408c0c7f22adea3a7, type: 2}
   - {fileID: 11400000, guid: 8c24a8150d66714468ae42f191cb70f3, type: 2}
@@ -10526,6 +10527,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5b65268dfe882754996ae0cfd86e0e44, type: 2}
   - {fileID: 11400000, guid: 551625d21a1b6734aa8d40b01244c33a, type: 2}
   - {fileID: 11400000, guid: 7bde808cdba426d43af7ae681713d937, type: 2}
+  - {fileID: 11400000, guid: fa4968dc232fd564998f2c7daf43a437, type: 2}
 --- !u!4 &1980045342
 Transform:
   m_ObjectHideFlags: 0

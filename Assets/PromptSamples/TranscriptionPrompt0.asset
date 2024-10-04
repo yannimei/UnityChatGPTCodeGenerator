@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: TranscriptionPrompt0
   m_EditorClassIdentifier: 
   scenarioTitle: Transcription
-  promptPrefixConstant: create a untiy c# script called "Generation" to
+  promptPrefixConstant: 'create a untiy c# script called "Generation" following the
+    given steps:'
   promptList:
-  - move me (XRRig, use gameobject.find) when I rotate my head (XRRig/CameraOffset/MainCamera,
-    use gameobject.find)
+  - Find the current RightHand object using GameObject.Find("RightHand"). Then, use
+    a loop to duplicate the RightHand object 10 times by calling Object.Instantiate(RightHand,
+    RightHand.transform.position, RightHand.transform.rotation) for each instance.
+    Ensure that each duplicated hand is set as a child of the current RightHand's
+    parent by using transform.parent to maintain the hierarchy.
   - "for generating Go-Go VR interaction for the lefthand. Just create a small primitive
     sphere to represent a handmodel, and get the transform of the left controller
     by accessing OVRCameraRig/TrackingSpace/LeftHandAnchor, use gameobject.find.  
