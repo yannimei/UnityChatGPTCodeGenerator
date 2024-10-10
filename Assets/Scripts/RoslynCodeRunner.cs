@@ -75,7 +75,7 @@ public class RoslynCodeRunner : Singleton<RoslynCodeRunner>
                 typeof(Light).Assembly,
                 typeof(PhysicMaterial).Assembly,
                 typeof(Camera).Assembly,
+                typeof(ChatGPTScript).Assembly,
                 typeof(ParticleSystem).Assembly);
-
     }
 }
