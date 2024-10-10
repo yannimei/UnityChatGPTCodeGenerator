@@ -24,7 +24,7 @@ public class ScriptManager : MonoBehaviour
     private int currentScriptIndex;
     [SerializeField] private TMP_Text scriptLabel;
     [SerializeField] private Text prompt;
-
+    [SerializeField] private TMP_Text indexIndicator;
 
     // called by button on the UI
     public void DestroyCurrentScript()
@@ -59,9 +59,9 @@ public class ScriptManager : MonoBehaviour
     private void ShowScript(int index)
     {
         currentScriptIndex = index;
-        // TODO: update UI to show name of the new script
         scriptLabel.text = prompts[index];
         // TODO: update UI to show name of the new script param (check if the script has at least one param)
+        indexIndicator.text = $"{index+1}/{scripts.Count}";
     }
 
     public void AddScript(ChatGPTScript newScript)
@@ -69,6 +69,6 @@ public class ScriptManager : MonoBehaviour
         scripts.Add(newScript);
         prompts.Add(prompt.text);
 
-        if (scripts.Count == 1) ShowScript(0);
+        ShowScript(currentScriptIndex);
     }
 }
