@@ -9,6 +9,9 @@ public class ChatGPTTester : MonoBehaviour
     private Button askButton;
 
     [SerializeField]
+    private ButtonManager buttonManager;
+
+    [SerializeField]
     private TextMeshProUGUI chatGPTAnswer;
 
     //[SerializeField]
@@ -104,6 +107,8 @@ public class ChatGPTTester : MonoBehaviour
             // log the code to the text box
             Logger.Instance.LogInfo(response.Data);
 
+            buttonManager.SetCompileButtonInteractable(true);
+
             //if true then run the genreated code
             if (immediateCompilation)
             {
@@ -117,6 +122,8 @@ public class ChatGPTTester : MonoBehaviour
     public void ProcessAndCompileResponse()
     {
         RoslynCodeRunner.Instance.RunCode(response.Data);
+
+        buttonManager.SetCompileButtonInteractable(false);
     }
 
     public void SetVoiceInputValue(bool newToggleValue)

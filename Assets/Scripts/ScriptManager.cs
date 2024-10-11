@@ -52,13 +52,14 @@ public class ScriptManager : MonoBehaviour
     public void DestroyCurrentScript()
     {
         ChatGPTScript script = this.scripts[this.currentScriptIndex];
-        this.scripts.Remove(script);
+        this.scripts.RemoveAt(this.currentScriptIndex);
+        this.prompts.RemoveAt(this.currentScriptIndex);
         script.DestroyScript();
         // TODO: update UI
        if (currentScriptIndex >= scripts.Count)
-        {
+       {
             currentScriptIndex = scripts.Count - 1;
-        }
+       }
         ShowScript(currentScriptIndex);
         ShowParam(0);
     }
@@ -111,7 +112,7 @@ public class ScriptManager : MonoBehaviour
     private void ShowParam(int index)
     {
         currentParamIndex = index;
-        if (paramData.Length >= index)
+        if (paramData.Length > index)
         {
             paraName.text = paramData[currentParamIndex].name;
             paraValue.text = paramData[currentParamIndex].Get().ToString();

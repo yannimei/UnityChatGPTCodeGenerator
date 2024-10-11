@@ -202,7 +202,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 47250543}
   m_OnClick:
     m_PersistentCalls:
@@ -2542,6 +2542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa7ca7025718f147ac9fa7fddce1a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
 --- !u!1 &312662791
 GameObject:
   m_ObjectHideFlags: 0
@@ -7259,6 +7260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa7ca7025718f147ac9fa7fddce1a56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
 --- !u!1 &922616286
 GameObject:
   m_ObjectHideFlags: 0
@@ -11110,6 +11112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   askButton: {fileID: 353485464}
+  buttonManager: {fileID: 1840678981}
   chatGPTAnswer: {fileID: 208255855}
   sceneUnderstanding: {fileID: 1393590716}
   conversationIDScene: 2
@@ -13160,8 +13163,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1840678980}
   - component: {fileID: 1840678979}
+  - component: {fileID: 1840678981}
   m_Layer: 0
-  m_Name: ScriptManager
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13199,6 +13203,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1840678981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1840678978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72d9b96b0c6b34e4cba4105deebdbd5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  compileButton: {fileID: 47250542}
 --- !u!1 &1857645613
 GameObject:
   m_ObjectHideFlags: 0
@@ -13458,7 +13475,7 @@ MonoBehaviour:
   additionalCode: 'ChatGPTScript newComponent = GameObject.Find("ChatGPTTester").AddComponent<Generation>()
     as ChatGPTScript;
 
-    GameObject.Find("ScriptManager").GetComponent<ScriptManager>().AddScript(newComponent);'
+    GameObject.Find("Manager").GetComponent<ScriptManager>().AddScript(newComponent);'
   OnRunCodeCompleted:
     m_PersistentCalls:
       m_Calls:
