@@ -122,8 +122,8 @@ public class ChatGPTTester : MonoBehaviour
     public void ProcessAndCompileResponse()
     {
         RoslynCodeRunner.Instance.RunCode(response.Data);
-
         buttonManager.SetCompileButtonInteractable(false);
+        buttonManager.SetScriptsButtonsInteractable(true);
     }
 
     public void SetVoiceInputValue(bool newToggleValue)

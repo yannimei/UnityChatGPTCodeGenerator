@@ -47,6 +47,7 @@ public class ScriptManager : MonoBehaviour
     [SerializeField] private TMP_Text indexIndicator;
     [SerializeField] private TMP_Text paraName;
     [SerializeField] private TMP_Text paraValue;
+    [SerializeField] private ButtonManager buttomManager;
 
     // called by button on the UI
     public void DestroyCurrentScript()
@@ -56,12 +57,17 @@ public class ScriptManager : MonoBehaviour
         this.prompts.RemoveAt(this.currentScriptIndex);
         script.DestroyScript();
         // TODO: update UI
-       if (currentScriptIndex >= scripts.Count)
-       {
+        if (currentScriptIndex >= scripts.Count)
+        {
             currentScriptIndex = scripts.Count - 1;
-       }
+        }
         ShowScript(currentScriptIndex);
         ShowParam(0);
+
+        if (scripts.Count == 0)
+        {
+            buttomManager.SetScriptsButtonsInteractable(false);
+        }
     }
 
     public void DisableCurrentScript()
@@ -106,6 +112,8 @@ public class ScriptManager : MonoBehaviour
             paramData = scripts[currentScriptIndex].GetParams(); // update the parameter list for a new script
             // reset the parameter index to 0 when switching to a new script
             ShowParam(0);
+            //if there is no parameter then disable the parameter buttons
+            buttomManager.SetParamButtonsInteractable(paramData.Length > 0 ? true : false);
         }
     }
 
@@ -128,9 +136,10 @@ public class ScriptManager : MonoBehaviour
     {
         scripts.Add(newScript);
         prompts.Add(prompt.text);
-
-        ShowScript(currentScriptIndex, true);
-        ShowParam(currentParamIndex);
+        // show the new script
+        ShowScript(scripts.Count-1, true);
+        // show the first parameter
+        ShowParam(0);
     }
 
     // called by different buttons on the UI
