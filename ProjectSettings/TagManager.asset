@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ignore
+  - Apple
   layers:
   - Default
   - TransparentFX
