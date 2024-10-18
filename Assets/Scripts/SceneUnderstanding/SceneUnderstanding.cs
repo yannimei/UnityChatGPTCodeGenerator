@@ -20,6 +20,18 @@ public class SceneUnderstanding : MonoBehaviour
         return sceneJson;
     }
 
+    public void ExportScene2()
+    {
+        string sceneJson = SceneToJsonExporter.SerializeSceneToJson(true);
+        string path = Application.dataPath + "/SceneJson/YourScene.json"; // Specify the path here
+        File.WriteAllText(path, sceneJson);
+        Debug.Log("Scene exported to JSON at: " + path);
+
+#if UNITY_EDITOR
+        UnityEditor.AssetDatabase.Refresh(); // Refresh the AssetDatabase to show the new file in Unity Editor
+#endif
+    }
+
 }
 
 
@@ -28,11 +40,10 @@ public class SceneUnderstanding : MonoBehaviour
 public class GameObjectInfo
 {
     public string name;
-    //public string parentName;
     //public string position;
     //public string rotation; 
-    public List<string> components = new List<string>(); // component it has been attached
-    //public List<GameObjectInfo> children = new List<GameObjectInfo>(); // get children info
+    //public List<string> components = new List<string>(); // component it has been attached
+    public List<GameObjectInfo> children = new List<GameObjectInfo>(); // get children info
 
     // Constructor
     //public GameObjectInfo(string name, Vector3 positionV, Vector3 rotationV, List<string> components)
@@ -44,11 +55,9 @@ public class GameObjectInfo
     //    this.components = components;
     //}
 
-    public GameObjectInfo(string name, List<string> components)
+    public GameObjectInfo(string name)
     {
         this.name = name;
-        //this.parentName = parentName;
-        this.components = components;
     }
 }
 
@@ -84,17 +93,30 @@ public static class SceneToJsonExporter
             return null; // Return null or handle as appropriate for your logic
         }
 
-        Vector3 position = obj.transform.position; // Get position
-        Vector3 rotation = obj.transform.eulerAngles; // Get rotation as Euler angles
-        List<string> components = new List<string>(); // Get components
+        //Vector3 position = obj.transform.position; // Get position
+        //Vector3 rotation = obj.transform.eulerAngles; // Get rotation as Euler angles
+        //List<string> components = new List<string>(); // Get components
 
-        foreach (Component component in obj.GetComponents<Component>())
-        {
-            components.Add(component.GetType().ToString());
-        }
+        //process components
+        //foreach (Component component in obj.GetComponents<Component>())
+        //{
+        //    components.Add(component.GetType().ToString());
+        //}
+
+        
 
         //GameObjectInfo info = new GameObjectInfo(obj.name, parent?.name, position, rotation, components);
-        GameObjectInfo info = new GameObjectInfo(obj.name, components);
+        GameObjectInfo info = new GameObjectInfo(obj.name);
+
+        // Process children
+        foreach (Transform child in obj.transform)
+        {
+            GameObjectInfo childInfo = ProcessGameObject(child.gameObject);
+            if (childInfo != null)
+            {
+                info.children.Add(childInfo);
+            }
+        }
         return info;
     }
 
