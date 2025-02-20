@@ -17,7 +17,7 @@ public class UIManager : MonoBehaviour
 
     public void AdaptUI()
     {
-        GameObject camera = GameObject.Find("MainCamera");
+        GameObject camera = GameObject.Find("CenterEyeAnchor");
 
         // Step 1: Move the UI in front of the camera using the offset
         uiobject.transform.position = camera.transform.position + camera.transform.TransformDirection(offset);
