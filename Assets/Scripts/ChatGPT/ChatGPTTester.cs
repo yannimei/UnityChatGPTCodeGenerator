@@ -43,16 +43,32 @@ public class ChatGPTTester : MonoBehaviour
 
     public Text transcription;
 
-    
+    public GameObject LocationReferences;
+
 
     public void Execute(int conversationID)
     {
         
         //if voiceInput is enabled then use script
         var selectedPrompt = voiceInput ? transcription.text : chatGPTQuestion[conversationID].prompt;
-
         //get sceneJson
-        string sceneInfo = sceneUnderstanding.ExportScene();
+        // string sceneInfo = sceneUnderstanding.ExportScene();
+       string sceneInfo = " ";
+        if (LocationReferences == null)
+        {
+            Debug.LogError("LocationReferences is not assigned!");
+            return;
+        }
+        // Get all child names
+        int childCount = LocationReferences.transform.childCount;
+        string[] locationNames = new string[childCount];
+        for (int i = 0; i < childCount; i++)
+        {
+            locationNames[i] = LocationReferences.transform.GetChild(i).name;
+        }
+        // Convert array to a single string
+        sceneInfo = string.Join(", ", locationNames);
+
 
         StartCoroutine(ChatGPTClient.Instance.Ask($"Request: {selectedPrompt},\n SceneJSON: {sceneInfo}", conversationIDScene, false, (r) =>
         {
