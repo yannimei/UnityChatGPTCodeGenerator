@@ -39,7 +39,7 @@ public class CarPoolSpawner : MonoBehaviour
 
     void Start()
     {
-        LoadPrefabs(); // StartCoroutine(
+        //LoadPrefabs(); // StartCoroutine(
         VisTraffic = VisModel.transform.Find("Traffic").gameObject;
         SimTraffic = Simulation.transform.Find("Traffic").gameObject;
     }
@@ -94,7 +94,7 @@ public class CarPoolSpawner : MonoBehaviour
         return simPosition;
     }
 
-    private void LoadPrefabs()
+    public void LoadPrefabs()
     {
         TrafficPrefabs = Resources.LoadAll<GameObject>(prefabFolder);
 
@@ -106,9 +106,10 @@ public class CarPoolSpawner : MonoBehaviour
             targetPoints[i] = child.gameObject.transform;
         }
         InitializeCarPool();
+        HideTraffic();
     }
 
-    private void InitializeCarPool()
+    public void InitializeCarPool()
     {
         if (!isTrafficShown) return;
         for (int i = 0; i < poolSize; i++)
@@ -142,7 +143,7 @@ public class CarPoolSpawner : MonoBehaviour
     }
 
 
-    private void startCar(GameObject dummy, GameObject car)
+    public void startCar(GameObject dummy, GameObject car)
     {
         var agent = dummy.GetComponent<NavMeshAgent>();
         if (agent == null) agent = dummy.AddComponent<NavMeshAgent>();
