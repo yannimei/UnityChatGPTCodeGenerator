@@ -15,6 +15,8 @@ public class MakeModelInteractable : MonoBehaviour
 
     private bool isVirtualShader;
 
+    public GameObject terrain;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -87,6 +89,12 @@ public class MakeModelInteractable : MonoBehaviour
             r.receiveShadows = true;
         }
         isVirtualShader = !isVirtualShader;
+    }
+
+    public void ToggleTerrain()
+    {
+        MeshRenderer terrainMR = terrain.GetComponent<MeshRenderer>();
+        terrainMR.enabled = !terrainMR.enabled; 
     }
 
     // Update is called once per frame
