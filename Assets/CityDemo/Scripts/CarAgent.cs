@@ -96,7 +96,7 @@ public class CarAgent : MonoBehaviour
         if (agent != null)
         {
             agent.isStopped = !enable;
-            agent.enabled = enable;
+            //agent.enabled = enable;
         }
     }
 }

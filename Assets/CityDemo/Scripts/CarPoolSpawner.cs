@@ -39,7 +39,7 @@ public class CarPoolSpawner : MonoBehaviour
 
     void Start()
     {
-        //LoadPrefabs(); // StartCoroutine(
+        LoadPrefabs(); // StartCoroutine(
         VisTraffic = VisModel.transform.Find("Traffic").gameObject;
         SimTraffic = Simulation.transform.Find("Traffic").gameObject;
     }
@@ -106,7 +106,6 @@ public class CarPoolSpawner : MonoBehaviour
             targetPoints[i] = child.gameObject.transform;
         }
         InitializeCarPool();
-        HideTraffic();
     }
 
     public void InitializeCarPool()
@@ -157,7 +156,7 @@ public class CarPoolSpawner : MonoBehaviour
     {
         isTrafficShown = !isTrafficShown;
 
-        toggleButton.gameObject.SetActive(isTrafficShown);
+        //toggleButton.gameObject.SetActive(isTrafficShown);
 
         foreach (var pair in agentToVisualMap)
         {
