@@ -64,6 +64,7 @@ public class RoslynCodeRunner : Singleton<RoslynCodeRunner>
             .Trim()))
             .AddReferences(
                 typeof(MonoBehaviour).Assembly,
+                typeof(UnityEngine.AI.NavMeshAgent).Assembly,
                 typeof(Debug).Assembly,
                 typeof(TextMeshPro).Assembly,
                 typeof(IEnumerator).Assembly,
@@ -76,6 +77,6 @@ public class RoslynCodeRunner : Singleton<RoslynCodeRunner>
                 typeof(PhysicMaterial).Assembly,
                 typeof(Camera).Assembly,
                 typeof(ChatGPTScript).Assembly,
-                typeof(ParticleSystem).Assembly);
+                typeof(ParticleSystem).Assembly); 
     }
 }

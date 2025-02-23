@@ -12360,6 +12360,7 @@ MonoBehaviour:
   - System
   - UnityEngine
   - System.Collections
+  - UnityEngine.AI
   code: 
   additionalCode: 'ChatGPTScript newComponent = GameObject.Find("ChatGPTTester").AddComponent<Generation>()
     as ChatGPTScript;
